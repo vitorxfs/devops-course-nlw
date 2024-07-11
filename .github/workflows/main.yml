@@ -13,6 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup GO
+        uses: actions/checkout@v4
+        with:
+          go_version: '1.22.x'
+
+      - name: Run tests
+        run: cd app && go test
+
       - name: Generate SHA
         id: generate_sha
         run: |
