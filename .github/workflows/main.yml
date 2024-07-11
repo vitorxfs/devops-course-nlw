@@ -26,10 +26,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build docker image
-        run: docker build -t vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} ./app
+        run: docker build -t vitorsnx/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} ./app
 
       - name: Push image
         run: |
-          docker push vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }}
-          docker tag vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} vitorxfs/devops-course-nlw:latest
-          docker push vitorxfs/devops-course-nlw:latest
+          docker push vitorsnx/devops-course-nlw:${{ steps.generate_sha.outputs.sha }}
+          docker tag vitorsnx/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} vitorsnx/devops-course-nlw:latest
+          docker push vitorsnx/devops-course-nlw:latest
