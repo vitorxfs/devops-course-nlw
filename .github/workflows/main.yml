@@ -27,3 +27,9 @@ jobs:
 
       - name: Build docker image
         run: docker build -t vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} ./app
+
+      - name: Push image
+        run: |
+          docker push vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }}
+          docker tag vitorxfs/devops-course-nlw:${{ steps.generate_sha.outputs.sha }} vitorxfs/devops-course-nlw:latest
+          docker push vitorxfs/devops-course-nlw:latest
